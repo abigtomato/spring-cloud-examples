@@ -1,0 +1,28 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://192.168.121.100:3306/db2020?useUnicode=true&characterEncoding=utf-8&userSSL=false
+    username: root
+    password: 123456
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.abigtomato.example.entities
+
+eureka:
+  client:
+    register-with-eureka: true  # 表示是否将当前服务注册进eureka server中
+    fetch-registry: true  # 表示是否从eureka server中抓取已有的注册信息(集群环境下需要为true才能配合ribbon使用负载均衡)
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka  # 配置eureka集群的地址
+  instance:
+    instance-id: payment-8001 # 配置当前节点对外暴露的服务名称(spring.application.name属于集群暴露的服务名称)
+    prefer-ip-address: true # 访问路径可以显示ip地址(ip/actuator/info)
+    lease-renewal-interval-in-seconds: 1  # eureka客户端向服务端发送心跳的时间间隔,单位s(默认30s)
+    lease-expiration-duration-in-seconds: 2 # eureka服务端在收到最后一个心跳后等待时间的上限,单位s(默认90s),超时的服务会被踢除
