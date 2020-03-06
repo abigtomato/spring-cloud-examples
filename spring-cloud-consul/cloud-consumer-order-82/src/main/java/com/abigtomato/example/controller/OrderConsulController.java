@@ -7,18 +7,18 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @Slf4j
-public class OrderZkController {
+public class OrderConsulController {
 
-    public static final String INVOKE_URL = "http://zookeeper-provider-payment";
+    public static final String INVOKE_URL = "http://consul-provider-payment";
 
     private RestTemplate restTemplate;
 
-    public OrderZkController(RestTemplate restTemplate) {
+    public OrderConsulController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping(value = "/zk")
+    @GetMapping(value = "/consul")
     public String paymentInfo() {
-        return restTemplate.getForObject(INVOKE_URL + "/zk", String.class);
+        return restTemplate.getForObject(INVOKE_URL + "/consul", String.class);
     }
 }

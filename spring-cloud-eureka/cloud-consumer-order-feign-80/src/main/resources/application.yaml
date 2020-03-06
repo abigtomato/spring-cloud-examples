@@ -1,0 +1,22 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-order-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+# openfeign默认支持ribbon
+ribbon:
+  ReadTimeout: 5000 # 设置建立连接所用的时间（网络正常情况下，两端连接所用的时间）
+  ConnectTimeout: 5000  # 设置建立连接后从服务端读取资源所用的时间
+
+logging:
+  level:
+    com.abigtomato.example.client.PaymentFeignClient: debug # 针对单个client设置feign的日志打印级别

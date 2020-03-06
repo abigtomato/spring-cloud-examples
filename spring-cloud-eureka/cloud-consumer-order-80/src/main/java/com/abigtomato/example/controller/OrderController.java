@@ -4,6 +4,7 @@ import com.abigtomato.example.entities.CommonResult;
 import com.abigtomato.example.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -28,5 +29,16 @@ public class OrderController {
     @GetMapping(value = "/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable Long id) {
         return restTemplate.getForObject(PAYMENT_URL + "/" + id, CommonResult.class);
+    }
+
+    @GetMapping(value = "/v2/{id}")
+    public CommonResult<Payment> getPaymentById2(@PathVariable Long id) {
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/" + id, CommonResult.class);
+        if (entity.getStatusCode().is2xxSuccessful()) {
+            log.info(entity.getStatusCodeValue() + "\t" + entity.getHeaders().getDate());
+            return entity.getBody();
+        } else {
+            return new CommonResult<>(444, "request fail", null);
+        }
     }
 }

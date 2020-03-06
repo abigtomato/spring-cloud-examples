@@ -10,6 +10,8 @@
         <module>cloud-api-commons</module>
         <module>spring-cloud-zookeeper</module>
         <module>spring-cloud-eureka</module>
+        <module>spring-cloud-consul</module>
+        <module>spring-cloud-hystrix</module>
     </modules>
     <packaging>pom</packaging>
 
