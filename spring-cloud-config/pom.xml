@@ -9,13 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-hystrix</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>cloud-provider-payment-8008</module>
-        <module>cloud-consumer-order-83</module>
-        <module>cloud-hystrix-dashboard-9001</module>
-    </modules>
+    <artifactId>spring-cloud-config</artifactId>
 
 
 </project>

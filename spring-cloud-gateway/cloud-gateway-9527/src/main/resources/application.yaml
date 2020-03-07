@@ -1,0 +1,39 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启从注册中通过服务名动态创建路由的功能
+      routes:
+        - id: provider_routh # 路由的唯一id，配合服务名设置
+#          uri: http://localhost:8010 # 匹配后提供服务的路由地址
+          uri: lb://cloud-provider-service  # 通过服务名创建路由（lb：负载均衡）
+          predicates: # 断言工厂
+            - Path=/provider/**  # 断言，匹配成功的路径才会进行路由
+        - id: provider_routh2
+#          uri: http://localhost:8010
+          uri: lb://cloud-provider-service
+          predicates:
+            - Path=/provider/v2/**
+            - After=2020-03-07T17:06:37.485+08:00[Asia/Shanghai]  # after断言：在指定时间之后才能匹配成功
+            - Cookie=username, zzyy  # cookie断言：请求携带的cookie需要符合设定的键值对才能匹配成功
+            - Header=X-Request-Id, \d+  # 请求头需要携带X-Request-Id项并且值为数字才能匹配成功
+            - Method=GET  # 请求方式为get才能匹配成功
+            - Query=username, \d+ # 请求参数要符合设定规则才能匹配成功
+            - Host=**.abigtomato.com  # 请求头中的host项的值需要符合规则才能匹配成功
+          filters:  # 过滤器工厂
+            - AddRequestParameter=X-Request-Id, 1024  # 在匹配成功的请求header上添加X-Request-Id: 1024
+
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka

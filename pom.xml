@@ -12,6 +12,8 @@
         <module>spring-cloud-eureka</module>
         <module>spring-cloud-consul</module>
         <module>spring-cloud-hystrix</module>
+        <module>spring-cloud-gateway</module>
+        <module>spring-cloud-config</module>
     </modules>
     <packaging>pom</packaging>
 
