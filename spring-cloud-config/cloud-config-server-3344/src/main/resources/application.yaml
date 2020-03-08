@@ -1,0 +1,34 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:abigtomato/spring-cloud-examples.git  # github上的配置中心仓库地址
+          search-paths:
+            - cloud-config-github # 搜索目录
+      label: master # 分支读取
+  # rabbitmq相关配置
+  rabbitmq:
+    host: 192.168.121.100
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+# 暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

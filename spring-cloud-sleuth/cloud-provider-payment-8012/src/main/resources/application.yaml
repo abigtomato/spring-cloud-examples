@@ -1,0 +1,23 @@
+server:
+  port: 8012
+
+spring:
+  application:
+    name: cloud-provider-payment
+  zipkin:
+    base-url: http://localhost:9411 # 数据图表地址
+  sleuth:
+    sampler:
+      probability: 1  # 设置sleuth对请求的采样率（取值介于0到1之间），设置1标识全部采集
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+  instance:
+    instance-id: payment-8001
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2

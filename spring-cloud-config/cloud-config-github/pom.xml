@@ -3,19 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-cloud-examples</artifactId>
+        <artifactId>spring-cloud-config</artifactId>
         <groupId>com.abigtomato</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-config</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>cloud-config-server-3344</module>
-        <module>cloud-config-github</module>
-        <module>cloud-config-client-3355</module>
-        <module>cloud-config-client-3366</module>
-    </modules>
+    <artifactId>cloud-config-github</artifactId>
+
 
 </project>

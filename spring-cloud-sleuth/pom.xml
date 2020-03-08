@@ -9,13 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-config</artifactId>
+    <artifactId>spring-cloud-sleuth</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>cloud-config-server-3344</module>
-        <module>cloud-config-github</module>
-        <module>cloud-config-client-3355</module>
-        <module>cloud-config-client-3366</module>
+        <module>cloud-provider-payment-8012</module>
+        <module>cloud-consumer-order-84</module>
     </modules>
+
 
 </project>
