@@ -1,0 +1,13 @@
+server:
+  port: 85
+
+spring:
+  application:
+    name: cloud-consumer-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.121.100:8848
+
+service-url:
+  nacos-user-service: http://cloud-provider-payment # 消费者访问的微服务名称（注册进nacos的微服务提供者）

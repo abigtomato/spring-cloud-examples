@@ -1,0 +1,20 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: cloud-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.121.100:8848
+    sentinel:
+      transport:
+        dashboard: 192.168.121.100:8080 # 设置sentinel dashboard监控页面的地址
+        port: 8719  # sentinel默认监听8719端口，若被占用则开始依次+1扫描，直到找到被占用的端口
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

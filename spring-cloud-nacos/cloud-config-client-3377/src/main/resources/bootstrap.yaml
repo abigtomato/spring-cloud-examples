@@ -1,0 +1,17 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    name: cloud-config-client
+  cloud:
+    nacos:
+      discovery:
+#        server-addr: 192.168.121.100:8848
+        server-addr: 192.168.121.103:1111 # 通过nginx访问nacos集群
+      # 项目启动时需要先从配置中心拉取，所以配置中心相关配置需要放在bootstrap.yaml系统级配置文件中
+      config:
+        server-addr: 192.168.121.100:8848
+        file-extension: yaml  # 指定yaml格式的配置
+        group: DEV_GROUP  # 指定group组
+        namespace: 7d8f0f5a-6a53-4785-9686-dd460158e5d4 # 指定命名空间
