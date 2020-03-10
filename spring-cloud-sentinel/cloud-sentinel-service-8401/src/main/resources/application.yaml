@@ -12,6 +12,16 @@ spring:
       transport:
         dashboard: 192.168.121.100:8080 # 设置sentinel dashboard监控页面的地址
         port: 8719  # sentinel默认监听8719端口，若被占用则开始依次+1扫描，直到找到被占用的端口
+      # sentinel + nacos持久化配置
+      datasource:
+        ds1:  # 数据源名称
+          nacos:
+            # 设置sentinel持久化到nacos config中的配置
+            server-addr: 192.168.121.100:8848
+            dataId: cloud-sentinel-service  # 服务DataId
+            groupId: DEFAULT_GROUP  # 组id
+            data-type: json # 数据类型
+            rule_type: flow # 规则类型（流控）
 
 management:
   endpoints:

@@ -3,14 +3,12 @@ package com.abigtomato.example;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
-public class ConsumerOrderMain85 {
+public class ProviderPaymentMain9003 {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerOrderMain85.class, args);
+        SpringApplication.run(ProviderPaymentMain9003.class, args);
     }
 }

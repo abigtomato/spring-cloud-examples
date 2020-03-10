@@ -3,20 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-cloud-examples</artifactId>
+        <artifactId>spring-cloud-seata</artifactId>
         <groupId>com.abigtomato</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-sentinel</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>cloud-sentinel-service-8401</module>
-        <module>cloud-provider-payment-9003</module>
-        <module>cloud-provider-payment-9004</module>
-        <module>cloud-consumer-order-86</module>
-    </modules>
+    <artifactId>seata-account-service-2003</artifactId>
 
 
 </project>

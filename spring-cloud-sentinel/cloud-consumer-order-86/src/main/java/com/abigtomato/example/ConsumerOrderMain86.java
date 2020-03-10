@@ -8,9 +8,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class ConsumerOrderMain85 {
+public class ConsumerOrderMain86 {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerOrderMain85.class, args);
+        SpringApplication.run(ConsumerOrderMain86.class, args);
     }
 }

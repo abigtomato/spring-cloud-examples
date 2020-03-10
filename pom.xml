@@ -18,6 +18,7 @@
         <module>spring-cloud-sleuth</module>
         <module>spring-cloud-nacos</module>
         <module>spring-cloud-sentinel</module>
+        <module>spring-cloud-seata</module>
     </modules>
     <packaging>pom</packaging>
 
