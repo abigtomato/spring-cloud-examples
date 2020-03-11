@@ -5,6 +5,7 @@ import com.abigtomato.example.client.StorageClient;
 import com.abigtomato.example.dao.OrderDao;
 import com.abigtomato.example.domain.Order;
 import com.abigtomato.example.service.OrderService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,7 @@ public class OrderServiceImpl implements OrderService {
     private AccountClient accountClient;
 
     @Override
+    @GlobalTransactional(name = "fsp-create-order", rollbackFor = Exception.class)
     public void create(Order order) {
         log.info("创建订单");
         orderDao.create(order);

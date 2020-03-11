@@ -13,6 +13,6 @@ import java.math.BigDecimal;
 public interface AccountClient {
 
     @PostMapping(value = "/account/decrease")
-    CommonResult<String> decrease(@RequestParam("userId") Long userId,
-                                  @RequestParam("money") BigDecimal money);
+    CommonResult<Void> decrease(@RequestParam("userId") Long userId,
+                                @RequestParam("money") BigDecimal money);
 }

@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface StorageClient {
 
     @PostMapping(value = "/storage/decrease")
-    CommonResult<String> decrease(@RequestParam("productId") Long productId,
-                                  @RequestParam("count") Integer count);
+    CommonResult<Void> decrease(@RequestParam("productId") Long productId,
+                                @RequestParam("count") Integer count);
 }
